@@ -5,16 +5,21 @@
 	<Set name="contextPath">/dumpRequest</Set>
 	<Set name="war"><SystemProperty name="jetty.base" default="."/>/dumpRequest.war</Set>
 
-	<!-- <New id="recordDS" class="org.eclipse.jetty.plus.jndi.Resource">
+	<!-- <New id="myAzurePostgresDS" class="org.eclipse.jetty.plus.jndi.Resource">
 		<Arg></Arg>
-		<Arg>jdbc/myDS</Arg>
+		<Arg>jdbc/myAzurePostgresDS</Arg>
 		<Arg>
-			<New class="org.postgresql.ds.PGSimpleDataSource">
-				<Set name="User">user@host</Set>
+			<New class="org.postgresql.ds.PGPoolingDataSource">
+				<Set name="User">user@my-azure-postgres-host</Set>
 				<Set name="Password">password</Set>
-				<Set name="DatabaseName">myDB</Set>
-				<Set name="ServerName">host</Set>
+				<Set name="DatabaseName">my-azure-postgres-db</Set>
+				<Set name="ServerName">my-azure-postgres-host.postgres.database.azure.com</Set>
 				<Set name="PortNumber">5432</Set>
+				<Set name="SslMode">verify-ca</Set>
+				<Set name="SslRootCert">d:\home\site\wwwroot\jetty-base\root.crt</Set>
+				<Set name="DataSourceName">myAzurePostgresDS</Set>
+				<Set name="InitialConnections">1</Set>
+				<Set name="MaxConnections">3</Set>
 			</New>
 		</Arg>
 	</New> -->
