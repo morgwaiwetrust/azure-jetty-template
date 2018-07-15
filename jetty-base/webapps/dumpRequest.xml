@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+
+	<Set name="contextPath">/dumpRequest</Set>
+	<Set name="war"><SystemProperty name="jetty.base" default="."/>/dumpRequest.war</Set>
+
+	<!-- <New id="recordDS" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg></Arg>
+		<Arg>jdbc/myDS</Arg>
+		<Arg>
+			<New class="org.postgresql.ds.PGSimpleDataSource">
+				<Set name="User">user@host</Set>
+				<Set name="Password">password</Set>
+				<Set name="DatabaseName">myDB</Set>
+				<Set name="ServerName">host</Set>
+				<Set name="PortNumber">5432</Set>
+			</New>
+		</Arg>
+	</New> -->
+
+	<!-- avoid annotation scanning in WEB-INF/lib folder -->
+	<Call name="setAttribute">
+		<Arg>org.eclipse.jetty.server.webapp.WebInfIncludeJarPattern</Arg>
+		<Arg>nothing$</Arg>
+	</Call>
+
+</Configure>
